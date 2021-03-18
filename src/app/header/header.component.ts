@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserEntity } from '../services/interfaces/auth.interfaces';
-import { OrganizationService } from '../services/organization.service';
 
 @Component({
   selector: 'app-header',

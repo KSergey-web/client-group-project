@@ -1,1 +1,29 @@
 <app-header></app-header>
+<app-navigation></app-navigation>
+Ваши организаци:
+<table class="rooms">
+    <thead>
+    <tr>
+        <th>Название комнаты</th>
+        <th>Создатель</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let room of rooms" 
+    [class.selected]="room === selectedRoom"
+    (click)="onSelect(room)"
+    (dblclick)="enterRoom(room)">
+      <td><span> {{room.name}} </span></td> 
+      <td><span> {{room.user}}</span> </td> 
+    </tr>
+</tbody>
+</table>
+
+<button (click)="deleteRoom()">Удалить комнату</button>
+<label>
+    Name:
+    <input type="text" [formControl]="nameRoom">
+  </label>
+  <p>
+    <button (click)="createRoom()">Создать комнату</button>
+  </p>  

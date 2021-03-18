@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AuthComponent } from './auth/auth.component';
 import { ACCESS_TOKEN_KEY } from './services/auth.service';
 import { RoomsComponent } from './rooms/rooms.component';
+import { PlayComponent } from './play/play.component';
 
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
@@ -29,6 +30,7 @@ export function tokenGetter(){
     NavigationComponent,
     AuthComponent,
     RoomsComponent,
+    PlayComponent,
   ],
   imports: [
     BrowserModule,
