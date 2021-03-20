@@ -31,6 +31,6 @@ export class AuthComponent implements OnInit {
   }
 
   onRegistr(): void {
-    this.authService.registr(this.checkoutForm.value).subscribe(()=>{this.onLogin()});;
+    this.authService.registr(this.checkoutForm.value).subscribe(()=>{this.onLogin()},err=>{ console.log(err); alert(err.message);});;
   }
 }

@@ -4,12 +4,14 @@ import { AuthComponent } from './auth/auth.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PlayComponent } from './play/play.component';
 import { RoomsComponent } from './rooms/rooms.component';
+import { StatisticComponent } from './statistic/statistic.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent},
     { path: 'auth', component: AuthComponent},
     { path: 'rooms', component: RoomsComponent},
     { path: 'play/:id', component: PlayComponent},
+    { path: 'statistic', component: StatisticComponent},
     { path: '**', component: NotFoundComponent }
 ];
 

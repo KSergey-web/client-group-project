@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { colorEnum } from '../enums/rate.enum';
+import { SomeBodyRateEntity } from '../services/interfaces/rate.interfaces';
 import { PlayService } from '../services/play.service';
 
 @Component({
@@ -12,7 +14,29 @@ export class PlayComponent implements OnInit {
 
   roomId: string = "";
 
-  subscription!: Subscription;
+  subscriptionResult!: Subscription | null;
+  subscriptionRate!: Subscription | null;
+
+  rates: Array<SomeBodyRateEntity> = [];
+
+  result?: colorEnum;
+
+  timeLeft: number = 20;
+
+  interval:any;
+
+  startTimer() {
+    clearInterval(this.interval);
+    this.timeLeft = 20;
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 20;
+        clearInterval(this.interval);
+      }
+    },1000)
+  }
 
   constructor( 
     private playService: PlayService, 
@@ -25,15 +49,27 @@ export class PlayComponent implements OnInit {
     });
    }
 
+   rate(color: string){
+    this.playService.rateEvent(color,this.roomId);
+   }
+
   ngOnInit(): void {
     this.playService.authEvent();
     this.playService.enterRoomEvent(this.roomId);
-    this.subscription = this.playService.getSubResult().subscribe(res => alert(res.color));
+    this.subscriptionResult = this.playService.getObsResult().subscribe(res => {
+      this.result = res.color;
+      this.rates.splice(0,this.rates.length);
+      this.startTimer();
+    });
+    this.subscriptionRate = this.playService.getObsRate().subscribe(res => this.rates.push(res));
   }
 
   ngOnDestroy(): void{
     this.playService.leaveRoomEvent(this.roomId);
-    this.subscription.unsubscribe();
+    this.subscriptionResult!.unsubscribe();
+    this.subscriptionResult = null;
+    this.subscriptionRate!.unsubscribe();
+    this.subscriptionRate = null;
   }
 
 }

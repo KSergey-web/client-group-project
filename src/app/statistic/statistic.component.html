@@ -1,0 +1,23 @@
+<app-header></app-header>
+<app-navigation></app-navigation>
+Статистика
+<table class="statistic">
+    <thead>
+    <tr>
+        <th>Название комнаты</th>
+        <th>Создатель</th>
+        <th>Время</th>
+        <th>Ставка</th>
+        <th>Результат</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let note of notes"> 
+      <td><span> {{note.room}} </span></td> 
+      <td><span> {{note.user}}</span> </td> 
+      <td><span> {{note.date | date:'short'}}</span> </td>
+      <td><span> {{note.color}}</span> </td>
+      <td><span> {{note.result}}</span></td>
+    </tr>
+</tbody>
+</table>

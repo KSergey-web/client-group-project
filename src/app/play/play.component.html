@@ -1,1 +1,32 @@
 <app-navigation></app-navigation>
+<button (click)="rate('green')">Зеленый</button>
+<button (click)="rate('red')">Красный</button>
+<button (click)="rate('black')">Черный</button>
+<p>{{timeLeft}} Seconds Left....</p>
+<div>Результат: <span *ngIf="result"> {{result}} </span> </div>
+Зеленый:
+<ul>
+  <span *ngFor="let rate of rates">
+    <li *ngIf="rate.color == 'green'">
+      <span *ngIf="rate.color == 'green'"> {{rate.login}} </span> 
+    </li>
+  </span>
+</ul>
+
+Черный:
+<ul>
+  <span *ngFor="let rate of rates">
+    <li *ngIf="rate.color == 'black'">
+      <span>{{rate.login}}</span> 
+    </li>
+    </span>
+</ul>
+
+Красный:
+<ul>
+  <span *ngFor="let rate of rates">
+    <li *ngIf="rate.color == 'red'">
+      <span *ngIf="rate.color == 'red'"> {{rate.login}} </span> 
+    </li>
+  </span>
+</ul>

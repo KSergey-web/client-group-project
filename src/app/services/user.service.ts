@@ -6,6 +6,7 @@ import { API_URL } from '../app-injection-tokens';
 import { User } from './interfaces/user.interface';
 
 export const CURRENT_USER_ID: string = "CURRENT_USER_ID";
+export const CURRENT_USER_LOGIN: string = "CURRENT_USER_LOGIN";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,13 @@ export class UserService {
 
   getUser(userId:string) :Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/v1/api/user/${userId}`);
+  }
+
+  getCurrentUserId(): string {
+    return localStorage.getItem(CURRENT_USER_ID)!;
+  }
+
+  getCurrentUserLogin(): string {
+    return localStorage.getItem(CURRENT_USER_LOGIN)!;
   }
 }

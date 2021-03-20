@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { API_URL } from '../app-injection-tokens';
 import { LoginDTO, RegistrEntity, UserEntity } from './interfaces/auth.interfaces';
-import { CURRENT_USER_ID } from './user.service';
+import { CURRENT_USER_ID, CURRENT_USER_LOGIN } from './user.service';
 
 export const ACCESS_TOKEN_KEY: string = "inwork_access_token";
 
@@ -27,6 +27,7 @@ export class AuthService {
     .pipe(
       tap( (obj: any) => {
         localStorage.setItem(CURRENT_USER_ID, obj._id);
+        localStorage.setItem(CURRENT_USER_LOGIN, obj.login);
         localStorage.setItem(ACCESS_TOKEN_KEY, obj.token);
         let token = localStorage.getItem(ACCESS_TOKEN_KEY);
         console.warn(token);
