@@ -45,11 +45,10 @@ export class RoomsComponent implements OnInit {
 
   selectedRoom?: RoomEntity;
   onSelect(room: RoomEntity): void {
-    console.log(room);
     this.selectedRoom = room;
   }
 
   enterRoom(room: RoomEntity){
-    this.router.navigate(['play']);
+    this.router.navigate(['play',room._id]);
   } 
 }

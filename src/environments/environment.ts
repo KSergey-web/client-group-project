@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  inWorkApi: 'http://localhost:4000',
+  rouletApi: 'http://localhost:4000',
   tokenWhiteListedDomains:['http://localhost:4000']
 };
 

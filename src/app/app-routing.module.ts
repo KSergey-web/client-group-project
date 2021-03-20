@@ -6,9 +6,10 @@ import { PlayComponent } from './play/play.component';
 import { RoomsComponent } from './rooms/rooms.component';
 
 const routes: Routes = [
+  { path: '', component: AuthComponent},
     { path: 'auth', component: AuthComponent},
     { path: 'rooms', component: RoomsComponent},
-    { path: 'play', component: PlayComponent},
+    { path: 'play/:id', component: PlayComponent},
     { path: '**', component: NotFoundComponent }
 ];
 

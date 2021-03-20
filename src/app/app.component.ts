@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlayService } from './services/play.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,5 @@ export class AppComponent {
   title = 'Roulet';
   
   
-  constructor(
-) { }
+  constructor() { }
 }
