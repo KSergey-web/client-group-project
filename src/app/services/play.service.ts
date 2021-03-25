@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import * as io from 'socket.io-client';
 import { colorEnum } from '../enums/rate.enum';
 import { ACCESS_TOKEN_KEY} from './auth.service';
+import { ObjectId } from './interfaces/auth.interfaces';
 import { RateDTO, ResultEntity, SomeBodyRateEntity } from './interfaces/rate.interfaces';
 import { UserService } from './user.service';
 
@@ -21,6 +22,7 @@ export class PlayService {
     this.authEvent();
     this.resultRateEvent();
     this.someBodyRateEvent();
+    this.roomDeletedEvent();
   }
 
   authEvent(){
@@ -70,6 +72,12 @@ export class PlayService {
         observer.next(rate);
       });
     });
+  }
+
+  private roomDeletedEvent():void {
+      this.socket.on('roomDeleted', (room : ObjectId) => {
+        this.router.navigate(['rooms']);
+      })
   }
 
   rateObservable!:Observable<SomeBodyRateEntity>;

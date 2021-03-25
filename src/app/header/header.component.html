@@ -1,3 +1,6 @@
-<div *ngIf="user" class="header">
-    <span>{{user.login}}</span>
+<div class="header">
+<a routerLink="/rooms" class='linkRoom'>Комнаты</a>
+    <div *ngIf="user" class='user'>
+    <span>{{user.login}}</span> <a routerLink="/statistic"><img src="../../assets/statistic.png" alt="Статистика"></a>
+</div>
 </div>

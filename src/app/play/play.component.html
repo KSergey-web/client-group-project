@@ -1,11 +1,22 @@
-<app-navigation></app-navigation>
-<button (click)="rate('green')">Зеленый</button>
-<button (click)="rate('red')">Красный</button>
-<button (click)="rate('black')">Черный</button>
-<p>{{timeLeft}} Seconds Left....</p>
+<app-header></app-header>
+
+<div class="container">
+<button (click)="rate('green')" class='greenBtn'>Зеленый</button>
+<button (click)="rate('red')" class='redBtn'>Красный</button>
+<button (click)="rate('black')" class='blackBtn'>Черный</button>
+<p class="timer">{{timeLeft}}</p>
 <div>Результат: <span *ngIf="result"> {{result}} </span> </div>
-Зеленый:
-<ul>
+<div>
+<img src="../../assets/roulet.png" 
+[class.rotToGreen] = "'green' === result"
+[class.rotToRed] = "'red' === result"
+[class.rotToBlack] = "'black' === result"
+>
+<img src="../../assets/ptr.png" class="ptr"
+>
+</div>
+<ul class='greenList'>
+  <div class='greenLine'></div>
   <span *ngFor="let rate of rates">
     <li *ngIf="rate.color == 'green'">
       <span *ngIf="rate.color == 'green'"> {{rate.login}} </span> 
@@ -13,8 +24,8 @@
   </span>
 </ul>
 
-Черный:
-<ul>
+<ul class='blackList'>
+  <div class='blackLine'></div>
   <span *ngFor="let rate of rates">
     <li *ngIf="rate.color == 'black'">
       <span>{{rate.login}}</span> 
@@ -22,11 +33,12 @@
     </span>
 </ul>
 
-Красный:
-<ul>
+<ul class='redList'>
+  <div class='redLine'></div>
   <span *ngFor="let rate of rates">
     <li *ngIf="rate.color == 'red'">
       <span *ngIf="rate.color == 'red'"> {{rate.login}} </span> 
     </li>
   </span>
 </ul>
+</div>

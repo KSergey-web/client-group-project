@@ -14,3 +14,7 @@ export interface UserEntity {
 export interface RegistrEntity extends UserEntity{
     token: string;
 }
+
+export interface ObjectId {
+    id:string;
+}

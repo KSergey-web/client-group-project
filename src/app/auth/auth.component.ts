@@ -27,10 +27,24 @@ export class AuthComponent implements OnInit {
   onLogin(): void {
     this.authService.login(this.checkoutForm.value).subscribe(res=>{
       this.router.navigate(['rooms']);
-    }, err=>{ console.log(err); alert('Wrong login or password!');});
+    }, err=>{ console.log(err); alert('Неверный логин или пароль');});
   }
 
   onRegistr(): void {
-    this.authService.registr(this.checkoutForm.value).subscribe(()=>{this.onLogin()},err=>{ console.log(err); alert(err.message);});;
+    this.authService.registr(this.checkoutForm.value).subscribe(()=>{this.onLogin()},err=>{ this.errRegistr(err.status) });;
+  }
+
+  errRegistr(status: number){
+    switch (status) {
+      case 400:
+        alert('Введены некорректные данные');
+        break;
+      case 409:
+        alert('Такой логин уже занят');
+        break;
+      default:
+        alert(`Error ${status}`);
+    }
+    return;
   }
 }

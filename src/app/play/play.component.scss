@@ -1,0 +1,113 @@
+button{
+    color:white;
+    height: 40px;
+  font-size: 25px;
+}
+
+.blackBtn{
+    background-color: black;
+}
+
+.greenBtn{
+    background-color: green;
+}
+
+.redBtn{
+    background-color: red;
+}
+
+ul{
+    background-color: #acb5b8;
+    padding-left: 0; 
+    width: 180px; 
+    text-align: center;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+   }
+
+span{
+    color: black;
+}
+
+.container{
+    width: 1000px;
+    height: 700px;
+    left: 300px;
+    top:120px;
+    position: absolute;
+    padding: 30px;
+}
+
+.blackList{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+}
+
+.blackLine{
+    background-color: black;
+    height: 20px;
+}
+
+
+.greenList{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+}
+
+.greenLine{
+    background-color: green;
+    height: 20px;
+}
+
+.redList{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+}
+
+.redLine{
+    background-color: red;
+    height: 20px;
+}
+
+.timer{
+    font-size: 20px;
+    color: #05a8c8;
+}
+
+.ptr{
+    padding-top: 230px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.rotToGreen {				
+    animation: rotToGreen 2s 1s;	
+    animation-fill-mode: both;	
+   }
+   @keyframes rotToGreen {
+    from { transform:rotate(0);}				
+    to { transform: rotate(0.25turn); }
+}
+
+.rotToRed {				
+    animation: rotToRed 2s 1s;	
+    animation-fill-mode: both;	
+   }
+   @keyframes rotToRed {
+    from { transform:rotate(0);}				
+    to { transform: rotate(0.42turn); }
+}
+
+.rotToBlack {				
+    animation: rotToBlack 2s 1s;	
+    animation-fill-mode: both;	
+   }
+   @keyframes rotToBlack {
+    from { transform:rotate(0);}				
+    to { transform: rotate(0.60turn); }
+}

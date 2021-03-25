@@ -1,6 +1,6 @@
 <app-header></app-header>
-<app-navigation></app-navigation>
-Ваши организаци:
+<div class="container">
+  <h1>Список комнат</h1>
 <table class="rooms">
     <thead>
     <tr>
@@ -20,10 +20,12 @@
 </table>
 
 <button (click)="deleteRoom()">Удалить комнату</button>
+<br/>
 <label>
-    Name:
+    Название комнаты<br/>
     <input type="text" [formControl]="nameRoom">
   </label>
   <p>
     <button (click)="createRoom()">Создать комнату</button>
   </p>  
+</div>

@@ -1,18 +1,20 @@
+<div class="container">
 <form [formGroup]="checkoutForm" (ngSubmit)="onLogin()">
     <div>
         <label for="login">
-          Name
+          Логин:
         </label>
         <input id="login" type="text" formControlName="login">
       </div>
     
       <div>
         <label for="password">
-          Password
+          Пароль:
         </label>
-        <input id="password" type="text" formControlName="password">
+        <input id="password" type="password" formControlName="password">
       </div>
-    <button type="button" (click)="onRegistr()">Зарегистрироваться</button>
+    <div><span>У вас еще нет аккаунта?</span> <button type="button" (click)="onRegistr()" class="registration">Зарегистрироваться</button></div>
+
     <button class="button" type="submit">Войти</button>
   </form>
- 
+</div>

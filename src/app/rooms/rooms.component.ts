@@ -29,12 +29,17 @@ export class RoomsComponent implements OnInit {
   }
 
   createRoom(): void{
+    let str = this.nameRoom.value
+    if (str.trim() == '') {
+      alert("Введите название комнаты.");
+      return;
+    }
     this.roomService.createRoom(this.nameRoom.value).subscribe(room => this.rooms.push(room));
   }
 
   deleteRoom(): void{
     if (!this.selectedRoom) {
-      alert("Выберите комнату");
+      alert("Комната не выбрана");
       return;
     }
     this.roomService.deleteRoom(this.selectedRoom).subscribe(room => {
