@@ -21,13 +21,13 @@ export class PlayComponent implements OnInit {
 
   result?: colorEnum;
 
-  timeLeft: number = 4;
+  timeLeft: number = 10;
 
   interval:any;
 
   startTimer() {
     clearInterval(this.interval);
-    this.timeLeft = 4;
+    this.timeLeft = 10;
     this.interval = setInterval(() => {
       if(this.timeLeft == 1) {
         this.result = colorEnum.noColor;
@@ -35,7 +35,7 @@ export class PlayComponent implements OnInit {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 4;
+        this.timeLeft = 10;
         clearInterval(this.interval);
       }
     },1000)
